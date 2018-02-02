@@ -8,7 +8,7 @@ import Bar from '@/components/Bar'
 
 export default [
   {
-    path: '/user',
+    path: '/user/:id',
     name: 'User',
     component: User
   },
