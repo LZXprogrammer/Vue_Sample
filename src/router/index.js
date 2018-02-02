@@ -1,46 +1,33 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
-import Home from '@/components/Home'
-import hello from '@/components/hello'
-
-import HelloVue from '@/components/HelloVue'
-import Foo from '@/components/Foo'
-import Bar from '@/components/Bar'
+import lib from './lib'
 
 Vue.use(Router)
 
-export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    },
-    {
-      path: '/Home',
-      name: 'Home',
-      component: Home
-    },
-    {
-      path: '/hello',
-      name: 'hello',
-      component: hello
-    },
-    {
-      path: '/HelloVue',
-      name: 'HelloVue',
-      component: HelloVue
-    },
-    {
-      path: '/foo',
-      name: 'Foo',
-      component: Foo
-    },
-    {
-      path: '/bar',
-      name: 'Bar',
-      component: Bar
-    }
-  ]
-})
+const index = [
+  {
+    path: '/',
+    name: 'HelloWorld',
+    component: HelloWorld
+  }
+]
+
+
+// const routeList = Object.assign(index, lib);
+
+// let routeArr = Array.prototype.push.apply(index, lib);
+for (let v in lib) {
+  if (lib.hasOwnProperty(v)) {
+    index.push(lib[v])
+  }
+}
+
+// const routeList = [...index, ...lib];
+
+const routeList = {
+  routes: index
+}
+console.log(routeList);
+
+export default new Router(routeList)
