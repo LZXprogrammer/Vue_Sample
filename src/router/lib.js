@@ -1,5 +1,6 @@
 import User from '@/components/dynamic/User'
 import Named from '@/components/dynamic/Named'
+import PassingProps from '@/components/dynamic/PassingProps'
 import Home from '@/components/Home'
 import hello from '@/components/hello'
 import HelloVue from '@/components/HelloVue'
@@ -21,14 +22,15 @@ const Login = { template: '<div>Login</div>' }
 export default [
   {
     path: '/home',
-    redirect: => to {
-      name: 'Login'
+    redirect: {
+      name: '/login'
     }
   },
   {
     path: '/login',
     name: 'Login',
-    component: Login
+    component: Login,
+    alias: '/haha'
   },
   {
     path: '/user/:id',
@@ -101,5 +103,11 @@ export default [
         }
       }
     ]
+  },
+  {
+    path: '/passingprops/:message',
+    name: 'PassingProps',
+    component: PassingProps,
+    props: true
   }
 ]
