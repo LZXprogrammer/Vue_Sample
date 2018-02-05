@@ -22,9 +22,10 @@ const Login = { template: '<div>Login</div>' }
 export default [
   {
     path: '/home',
-    redirect: {
-      name: '/login'
-    }
+    // redirect: {
+    //   name: '/login'
+    // }
+    redirect: '/login'
   },
   {
     path: '/login',
